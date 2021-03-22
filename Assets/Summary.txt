@@ -1,0 +1,15 @@
+Hi all.
+
+  On this test, my focus was divided, between displaying things on screen and keep them performant.
+  I tried to keep the memory usage low due to the target platform being a mobile device, i did it by limiting the entries shown at a time.
+  On the bonus task, i didn't query dynamically, but that would be an easy process to add. I could also add a storage system for the downloaded texture, but it was going to be a bit more time-consuming so i decided not to do that.
+  
+  In terms of UI animations, there was a lot it could be done, such as: 
+   - FadeIN entries on element add;
+   - Make the Details panel appear from the pressed item, instead of appearing from the center;
+   
+  For the animation i used DoTween, since using animator on UI has a strong performance impact.
+  
+  The improvements if given more time it would be:
+   - Improve add and remove of entries when scrolling;
+   - Take more time on the details panel. 

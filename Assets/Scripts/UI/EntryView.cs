@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EntryView : MonoBehaviour
+public class EntryView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public Text movieTitle;
     public Text titleYear;
     public Text duration;
     public Text Genres;
     public Text CastInfo;
-        
+
+    public EntryDetailPanel entryDetailPanel;     
+    
+    public void SetDetailsPanel(EntryDetailPanel detailsPanel)
+    {
+        entryDetailPanel = detailsPanel;
+    }
+
     public void SetMovieTitle(string movieTitleIn)
     {
         movieTitle.text = movieTitleIn;
@@ -32,5 +40,14 @@ public class EntryView : MonoBehaviour
     {
         titleYear.text = "Directed by: " + directorIn + " With: " + actor1NameIN + " and " + actor2NameIn  ;
     }
-    
+   
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        entryDetailPanel.DownloadImage(movieTitle.text);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        entryDetailPanel.AnimateOut();         
+    }
 }
